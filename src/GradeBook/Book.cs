@@ -1,28 +1,66 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GradeBook{
 
     public delegate void GradeAddedEventHandler(object sender, EventArgs args);
 
-    public class Book{
+    public class NamedObject {
+        public NamedObject(string name){
+            Name = name;
+        }
+        public string Name { get; set;}
+    }
 
-        private List<double> grades;
-        private string name;
-        public string Name{
-            get{
-                return name;
-            }
-            set{
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name):base(name){
 
-                if(!String.IsNullOrEmpty(value)){
-                     name = value;
-                }
-               
-            }
         }
 
-        public event GradeAddedEventHandler GradeAdded;
+        public abstract event GradeAddedEventHandler GradeAdded;
+
+        public abstract void AddGrade(double grade);
+
+        public abstract Statistics GetStatistics();
+    }
+
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name {get;}
+        event GradeAddedEventHandler GradeAdded;
+
+    }
+
+    public class DiskBook : Book
+    {
+        public DiskBook(string name) : base(name){
+
+        }
+        public override void AddGrade(double grade)
+        {
+            using (var write = File.AppendText($"{Name}.txt")){
+                write.WriteLine(grade);
+                if(GradeAdded != null){
+                    GradeAdded(this, new EventArgs());
+                }
+            }
+        }
+        public override event GradeAddedEventHandler GradeAdded;
+        public override Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class InMemoryBook : Book
+    {
+
+        private List<double> grades;
+
+        public override event GradeAddedEventHandler GradeAdded;
 
         public void AddLetterGarde(char letter){
             switch(letter){
@@ -40,7 +78,7 @@ namespace GradeBook{
                     break;
             }
         }
-        public void AddGrade(double grade){
+        public override void AddGrade(double grade){
 
             if(grade >= 0 && grade <= 100){
                  grades.Add(grade);
@@ -60,49 +98,14 @@ namespace GradeBook{
             }
 
         }
-        public Statistics GetStatistics(){
+        public override Statistics GetStatistics(){
 
             var stat = new Statistics();
-            stat.Average= 0.0;
-            stat.High = double.MinValue;
-            stat.Low = double.MaxValue;
-
             
-            // foreach(var grade in grades){
-            //     stat.Average += grade;
-            //     stat.High = Math.Max(stat.High, grade);
-               
-            //     stat.Low  = Math.Min(stat.Low, grade);
-    
-            // }
-           // int index = 0;
-           // while (index < grades.Count){
             for(int i = 0; i <grades.Count; i++){
-                stat.Average += grades[i];
-                stat.High = Math.Max(stat.High, grades[i]);
-                stat.Low  = Math.Min(stat.Low, grades[i]);
+               stat.Add(grades[i]);
             }
-           //result /= grades.Count;
-           stat.Average /= grades.Count;
-
-           switch (stat.Average){
-               case var d when d >= 90.0:
-                    stat.Letter = 'A';
-                    break;
-                case var d when d >= 80.0 :
-                    stat.Letter = 'B';
-                    break;
-                case var d when d >= 70.0 :
-                    stat.Letter = 'C';
-                    break;
-                case var d when d >= 60.0:
-                    stat.Letter = 'D';
-                    break;
-                default:
-                    stat.Letter = 'F';
-                    break;
-           }    
-
+           
            return stat;
 
             // Console.WriteLine($"Highest grade: {highGrade}");
@@ -110,7 +113,8 @@ namespace GradeBook{
             // Console.WriteLine($"Average:  {result:N1}");
         }
 
-        public Book(string name){
+        public InMemoryBook(string name)  : base(name)
+        {
             grades = new List<double>();
             Name = name;
         }
