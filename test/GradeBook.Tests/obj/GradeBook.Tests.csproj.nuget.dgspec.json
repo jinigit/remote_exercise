@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {}
+    "c:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
+    "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj",
+        "projectUniqueName": "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj",
         "projectName": "GradeBook",
-        "projectPath": "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj",
+        "projectPath": "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj",
         "packagesPath": "C:\\Users\\si8636\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\obj\\",
+        "outputPath": "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\si8636\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,14 +56,14 @@
         }
       }
     },
-    "C:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {
+    "c:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
+        "projectUniqueName": "c:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
         "projectName": "GradeBook.Tests",
-        "projectPath": "C:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
+        "projectPath": "c:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
         "packagesPath": "C:\\Users\\si8636\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\obj\\",
+        "outputPath": "c:\\Users\\si8636\\source\\repos\\gradebook\\test\\GradeBook.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\si8636\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
-                "projectPath": "C:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj"
+              "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
+                "projectPath": "c:\\Users\\si8636\\source\\repos\\gradebook\\src\\GradeBook\\GradeBook.csproj"
               }
             }
           }
