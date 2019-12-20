@@ -31,10 +31,10 @@ namespace GradeBook.Tests
             var book1 = GetBook("book1");
         
             //Act //act invoke test
-            SetName(book1, "New Name");
+            SetName(book1, "New Names");
            
             //Assert   
-            Assert.Equal("New Name", book1.Name);
+            Assert.Equal("New Names", book1.Name);
         }
         private void SetName(InMemoryBook book, string name){
             book.Name = name;
